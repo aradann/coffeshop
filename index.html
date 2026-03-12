@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BrewHaven — Premium coffee beans, espresso machines, and accessories. Shop online with Google Pay." />
+  <title>BrewHaven — Coffee &amp; Coffee Machines</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Google Pay SDK (loaded async, non-blocking) -->
+  <script async src="https://pay.google.com/gp/p/js/pay.js"></script>
+</head>
+<body>
+
+<!-- ================================================
+     NAVBAR
+     ================================================ -->
+<header>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <!-- Logo -->
+      <a class="navbar__logo" href="#" aria-label="BrewHaven home">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="15" stroke="#D4A96A" stroke-width="2"/>
+          <path d="M10 22 C10 22, 10 14, 16 14 C22 14, 22 10, 22 10" stroke="#D4A96A" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <ellipse cx="16" cy="23" rx="7" ry="2" fill="#D4A96A" opacity=".4"/>
+          <path d="M8 8 Q16 4 24 8" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
+        </svg>
+        BrewHaven
+      </a>
+
+      <!-- Navigation links -->
+      <ul class="navbar__nav" id="navbar-menu" role="list">
+        <li><a class="navbar__link" href="#about"    data-nav="about">Our Story</a></li>
+        <li><a class="navbar__link" href="#shop"     data-nav="shop">Shop</a></li>
+        <li><a class="navbar__link" href="#features" data-nav="features">Why Us</a></li>
+        <li><a class="navbar__link" href="#contact"  data-nav="contact">Contact</a></li>
+      </ul>
+
+      <!-- Cart button -->
+      <button class="navbar__cart-btn" id="cart-btn" aria-label="Open basket">
+        🛒
+        <span class="badge" id="cart-count" style="display:none" aria-live="polite" aria-label="Items in basket">0</span>
+      </button>
+
+      <!-- Mobile burger -->
+      <button class="navbar__burger" id="navbar-burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbar-menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ================================================
+     HERO
+     ================================================ -->
+<section class="hero" id="hero" data-section="hero" aria-label="Welcome to BrewHaven">
+  <div class="hero__bg-pattern" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero__content">
+      <div class="hero__badge">☕ Specialty Coffee Since 2012</div>
+      <h1 class="hero__title">
+        Exceptional Coffee,<br />
+        <span>Crafted for You</span>
+      </h1>
+      <p class="hero__subtitle">
+        From volcanic highlands to your cup — explore single-origin beans, professional-grade machines,
+        and the accessories serious brewers trust.
+      </p>
+      <div class="hero__actions">
+        <button class="btn btn-primary" id="hero-shop-btn">Shop Now</button>
+        <a class="btn btn-outline" href="#about" style="color:#D4A96A;border-color:#D4A96A;">Our Story</a>
+      </div>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#about" aria-label="Scroll to Our Story">↓</a>
+</section>
+
+<!-- ================================================
+     OUR STORY / HISTORY
+     ================================================ -->
+<section class="section section--alt" id="about" data-section="about">
+  <div class="container">
+    <div class="story__grid">
+
+      <!-- Text -->
+      <div>
+        <p class="story__eyebrow">Our Story</p>
+        <h2 class="story__heading">Where Every Cup Has a History</h2>
+        <p class="story__body">
+          BrewHaven was founded in Edinburgh in 2012 by two friends who had spent years travelling the coffee-growing
+          regions of Ethiopia, Colombia, and Indonesia. Frustrated by the gap between café quality and what was available
+          to home brewers, they set out to build a shop that offered the same beans, machines, and knowledge used by
+          world-class baristas — accessible to everyone.
+        </p>
+        <p class="story__body">
+          Every SKU in our catalogue comes with a detailed origin story and history, because we believe understanding
+          where your coffee comes from makes every sip more meaningful. From 9th-century Ethiopian highlands to the
+          cutting-edge pressure profiling technology of today's espresso machines — coffee has a rich story, and we
+          want to share it with you.
+        </p>
+        <p class="story__body">
+          We source directly from small-holder farmers and certified cooperatives, paying above Fairtrade prices,
+          and we roast in small batches at our Edinburgh roastery to ensure peak freshness in every bag.
+        </p>
+        <div class="story__stats">
+          <div>
+            <div class="story__stat-number">12+</div>
+            <div class="story__stat-label">Years Roasting</div>
+          </div>
+          <div>
+            <div class="story__stat-number">18</div>
+            <div class="story__stat-label">Origins Sourced</div>
+          </div>
+          <div>
+            <div class="story__stat-number">50k+</div>
+            <div class="story__stat-label">Happy Customers</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative image placeholder -->
+      <div class="story__image" aria-hidden="true">
+        <span class="story__image-icon">☕</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     SHOP
+     ================================================ -->
+<section class="section" id="shop" data-section="shop">
+  <div class="container">
+
+    <!-- Heading -->
+    <div class="shop__intro">
+      <h2>The BrewHaven Shop</h2>
+      <p>Premium coffee beans, machines, and accessories — click any product for its full story and history.</p>
+    </div>
+
+    <!-- Search -->
+    <div class="shop__search">
+      <input
+        type="search"
+        id="shop-search"
+        class="shop__search-input"
+        placeholder="Search products…"
+        aria-label="Search products"
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- Category filters -->
+    <div class="shop__filters" role="group" aria-label="Filter by category">
+      <button class="filter-btn active" data-filter="all"      aria-pressed="true">All Products</button>
+      <button class="filter-btn"        data-filter="beans"    aria-pressed="false">☕ Coffee Beans</button>
+      <button class="filter-btn"        data-filter="machines" aria-pressed="false">🤖 Coffee Machines</button>
+      <button class="filter-btn"        data-filter="misc"     aria-pressed="false">🎁 Misc</button>
+    </div>
+
+    <!-- Products grid -->
+    <div class="products-grid" id="products-grid" role="list" aria-label="Products">
+      <!-- Populated by JavaScript -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================
+     FEATURES / WHY US
+     ================================================ -->
+<section class="section section--alt" id="features" data-section="features">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3rem">
+      <h2>Why BrewHaven?</h2>
+      <p style="color:var(--color-text-light);max-width:500px;margin:.75rem auto 0">
+        More than a shop — a community of coffee lovers backed by expertise and ethics.
+      </p>
+    </div>
+    <div class="features__grid">
+      <div class="feature-card">
+        <div class="feature-card__icon">🌱</div>
+        <h3 class="feature-card__title">Direct Trade</h3>
+        <p class="feature-card__text">We buy directly from farmers at above-Fairtrade prices, ensuring ethical sourcing and full traceability.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">🔬</div>
+        <h3 class="feature-card__title">Small-Batch Roasted</h3>
+        <p class="feature-card__text">All beans are roasted weekly in Edinburgh in batches under 15 kg for peak freshness.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">📖</div>
+        <h3 class="feature-card__title">Full Product History</h3>
+        <p class="feature-card__text">Every SKU includes a detailed description and origin history — know your coffee deeply.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">🚀</div>
+        <h3 class="feature-card__title">Free UK Delivery</h3>
+        <p class="feature-card__text">Free shipping on all orders over £50. Next-day delivery available on orders placed before 2 pm.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">🔒</div>
+        <h3 class="feature-card__title">Secure Payment</h3>
+        <p class="feature-card__text">Pay safely with Google Pay, Visa, Mastercard, or Amex — all transactions encrypted via TLS.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">🏆</div>
+        <h3 class="feature-card__title">Award-Winning</h3>
+        <p class="feature-card__text">Best Specialty Online Retailer — UK Coffee Awards 2023 &amp; 2024.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     CONTACT / FOOTER
+     ================================================ -->
+<footer class="footer" id="contact" data-section="contact">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">☕ BrewHaven</div>
+        <p class="footer__tagline">Premium coffee beans, espresso machines &amp; accessories — roasted in Edinburgh with love.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Shop</div>
+        <ul class="footer__links">
+          <li><a href="#shop">All Products</a></li>
+          <li><a href="#shop">Coffee Beans</a></li>
+          <li><a href="#shop">Coffee Machines</a></li>
+          <li><a href="#shop">Accessories</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">About</div>
+        <ul class="footer__links">
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#features">Why Us</a></li>
+          <li><a href="mailto:hello@brewhaven.co.uk">hello@brewhaven.co.uk</a></li>
+          <li><a href="tel:+441312345678">+44 131 234 5678</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2024 BrewHaven Ltd. All rights reserved.</span>
+      <span>Edinburgh, Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================
+     PRODUCT DETAIL MODAL
+     ================================================ -->
+<div class="modal-overlay" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title" id="modal-title">Product</h2>
+      <button class="modal__close" id="modal-close" aria-label="Close product details">✕</button>
+    </div>
+    <div class="modal__body">
+      <!-- Product image -->
+      <div class="modal__image" id="modal-image">
+        <span class="modal__image-emoji" aria-hidden="true"></span>
+      </div>
+
+      <!-- Meta: tag + price + SKU -->
+      <div class="modal__meta">
+        <span class="tag" id="modal-tag"></span>
+        <span class="modal__price" id="modal-price"></span>
+        <span style="color:var(--color-text-light);font-size:.8rem" id="modal-sku"></span>
+      </div>
+
+      <!-- Description -->
+      <div class="modal__section">
+        <h3 class="modal__section-title">Description</h3>
+        <p class="modal__section-body" id="modal-description"></p>
+      </div>
+
+      <!-- History -->
+      <div class="modal__section">
+        <h3 class="modal__section-title">History &amp; Origin</h3>
+        <p class="modal__section-body" id="modal-history"></p>
+      </div>
+
+      <!-- Specs -->
+      <div class="modal__section">
+        <h3 class="modal__section-title">Specifications</h3>
+        <div class="modal__specs" id="modal-specs"></div>
+      </div>
+
+      <!-- Quantity + Add to cart -->
+      <div class="modal__qty">
+        <span class="modal__qty-label">Qty:</span>
+        <div class="modal__qty-ctrl">
+          <button class="modal__qty-btn" id="modal-qty-dec" aria-label="Decrease quantity">−</button>
+          <span class="modal__qty-val"   id="modal-qty-val">1</span>
+          <button class="modal__qty-btn" id="modal-qty-inc" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+      <button class="btn btn-primary modal__add-btn" id="modal-add-btn">Add to Basket</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     CART SIDEBAR
+     ================================================ -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+<aside class="cart-sidebar" id="cart-sidebar" role="complementary" aria-label="Shopping basket">
+  <div class="cart-sidebar__header">
+    <h2 class="cart-sidebar__title">🛒 Your Basket</h2>
+    <button class="cart-sidebar__close" id="cart-close-btn" aria-label="Close basket">✕</button>
+  </div>
+
+  <!-- Empty state -->
+  <div class="cart-empty" id="cart-empty">
+    <div class="cart-empty__icon">☕</div>
+    <p>Your basket is empty.</p>
+    <p style="font-size:.85rem;margin-top:.35rem">Add something delicious!</p>
+  </div>
+
+  <!-- Cart items -->
+  <div class="cart-sidebar__items" id="cart-items" aria-live="polite" aria-label="Cart items"></div>
+
+  <!-- Footer totals + checkout -->
+  <div class="cart-sidebar__footer" id="cart-footer" style="display:none">
+    <div class="cart-sidebar__subtotal">
+      <span>Subtotal</span><span id="cart-subtotal">£0.00</span>
+    </div>
+    <div class="cart-sidebar__subtotal">
+      <span>Shipping</span><span id="cart-shipping">£4.99</span>
+    </div>
+    <div class="cart-sidebar__total">
+      <span>Total</span><span class="cart-sidebar__total-price" id="cart-total">£0.00</span>
+    </div>
+    <button class="btn btn-primary cart-sidebar__checkout-btn" id="cart-checkout-btn">
+      Checkout
+    </button>
+    <button class="cart-clear-btn" id="cart-clear-btn">Clear basket</button>
+  </div>
+</aside>
+
+<!-- ================================================
+     CHECKOUT / PAYMENT MODAL
+     ================================================ -->
+<div class="checkout-overlay" id="checkout-overlay" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+  <div class="checkout-modal">
+    <div class="checkout-modal__header">
+      <h2 class="checkout-modal__title" id="checkout-modal-title">🔒 Checkout</h2>
+      <button class="checkout-modal__close" id="checkout-close" aria-label="Close checkout">✕</button>
+    </div>
+    <div class="checkout-modal__body">
+
+      <!-- Order summary -->
+      <div class="checkout-summary">
+        <div class="checkout-summary__title">Order Summary</div>
+        <div class="checkout-summary__items" id="checkout-summary-items"></div>
+        <div class="checkout-summary__total" id="checkout-summary-total"></div>
+      </div>
+
+      <!-- Payment options -->
+      <div class="payment-section">
+        <div class="payment-section__title">Payment Method</div>
+
+        <!-- Google Pay -->
+        <div id="google-pay-btn-container"></div>
+
+        <div class="payment-or">or pay by card</div>
+
+        <!-- Manual card form -->
+        <form class="payment-form" id="payment-form" novalidate>
+          <label for="card-name">Cardholder Name</label>
+          <input type="text"  id="card-name"   placeholder="Jane Smith"       autocomplete="cc-name"   required />
+
+          <label for="card-number">Card Number</label>
+          <input type="text"  id="card-number" placeholder="1234 5678 9012 3456" autocomplete="cc-number"  inputmode="numeric" maxlength="19" required />
+
+          <div class="payment-form__row">
+            <div>
+              <label for="card-expiry">Expiry (MM/YY)</label>
+              <input type="text" id="card-expiry" placeholder="MM/YY" autocomplete="cc-exp" inputmode="numeric" maxlength="5" required />
+            </div>
+            <div>
+              <label for="card-cvc">CVC</label>
+              <input type="text" id="card-cvc" placeholder="123" autocomplete="cc-csc" inputmode="numeric" maxlength="4" required />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary payment-form__submit">
+            Pay Now
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     TOAST CONTAINER
+     ================================================ -->
+<div class="toast-container" id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+<!-- App JavaScript -->
+<script src="js/app.js"></script>
+</body>
+</html>
